@@ -4,7 +4,7 @@ Proyecto que permite a estudiantes calcular las notas de sus cursos considerando
 ## Tabla de Contenidos
 - [Instalación](#instalación)
 - [Uso](#uso)
-- [Tecnologias usadas](#Tecnologias usadas)
+- [Tecnologias usadas](#Tecnologias)
 
 ## Instalación
 1. Clona el repositorio
@@ -16,7 +16,7 @@ Proyecto que permite a estudiantes calcular las notas de sus cursos considerando
 ## Uso
 1.El app usa una base de datos SQLite
 
-## Tecnologias usadas
+## Tecnologias
 1. Kotlin
 2. Android Studio
 3. SQLite
