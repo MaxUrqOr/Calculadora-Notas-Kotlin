@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "649499313534",
+    "project_id": "calculadorauc-5283b",
+    "storage_bucket": "calculadorauc-5283b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649499313534:android:4ca74fe5afbe4cb5401f2f",
+        "android_client_info": {
+          "package_name": "com.continental.calculadoranotas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649499313534-rv1ipeojfa5833p1905s9k49hmu5pp54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBheRR3DI5rlKY2qZTWAsoREzeA6W8WnAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649499313534-rv1ipeojfa5833p1905s9k49hmu5pp54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649499313534:android:8d0118623f3216d5401f2f",
+        "android_client_info": {
+          "package_name": "com.wankadev.calc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649499313534-vq64hfl9ujbm37ibgho17ld5ited6icb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wankadev.calc",
+            "certificate_hash": "a08fa6e3b7f036d32830ca1cf0351df4fc4a23eb"
+          }
+        },
+        {
+          "client_id": "649499313534-rv1ipeojfa5833p1905s9k49hmu5pp54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBheRR3DI5rlKY2qZTWAsoREzeA6W8WnAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649499313534-rv1ipeojfa5833p1905s9k49hmu5pp54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649499313534:android:063e2183b1167bc8401f2f",
+        "android_client_info": {
+          "package_name": "com.wankadev.calculadorauc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649499313534-rv1ipeojfa5833p1905s9k49hmu5pp54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBheRR3DI5rlKY2qZTWAsoREzeA6W8WnAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649499313534-rv1ipeojfa5833p1905s9k49hmu5pp54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

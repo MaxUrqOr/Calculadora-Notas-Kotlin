@@ -10,8 +10,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.continental.calculadoranotas.Adapters.AdapterListView
 import com.continental.calculadoranotas.Entities.Nota
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 
 class Lista : AppCompatActivity() {
+    private val TAG = "Lista"
+
+    private lateinit var mAdView: AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,6 +28,9 @@ class Lista : AppCompatActivity() {
             insets
         }
 
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         val listView = findViewById<ListView>(R.id.lstNotas)
 

@@ -1,15 +1,23 @@
 package com.continental.calculadoranotas
 
+import android.app.Dialog
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,7 +27,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.airbnb.lottie.LottieAnimationView
 import com.continental.calculadoranotas.Entities.Nota
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 
 class MainActivity : AppCompatActivity() {
     val notasList = mutableListOf<Nota>()
@@ -34,11 +45,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var edtnota4: EditText
     private lateinit var edtNotaFinal: EditText
     private lateinit var edtNombre: EditText
+    private lateinit var textFelicidades: TextView
 
     private lateinit var btnVerLista: AppCompatButton
     private lateinit var btnGuardar: AppCompatButton
     private lateinit var btnLimpiar: AppCompatButton
     private lateinit var btnEliminar: AppCompatButton
+
+    private val TAG = "MainActivity"
+
+    private lateinit var mAdView: AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +65,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         // Obtener el Intent que inició esta actividad
         val intent = intent
@@ -76,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         edtnota3 = findViewById(R.id.edtnota3)
         edtnota4 = findViewById(R.id.edtnota4)
         edtNotaFinal = findViewById(R.id.edtnotaFinal)
+        textFelicidades = findViewById(R.id.textFelicidades)
 
         edtNombre = findViewById(R.id.edtNombre)
 
@@ -260,6 +281,17 @@ class MainActivity : AppCompatActivity() {
 
         // Actualiza el EditText edtNotaFinal con la nota final calculada
         edtNotaFinal.setText(String.format("%.2f", notaFinal))
+
+        //Mensaje
+        if(notaFinal>=10.5f){
+            showCustomDialog()
+            textFelicidades.setTextColor(Color.WHITE)
+            textFelicidades.setText("FELICIDADES APROBASTE")
+        }else{
+            textFelicidades.setTextColor(Color.RED)
+            textFelicidades.setText("LO SIENTO JALASTE")
+        }
+
     }
 
     class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -519,5 +551,37 @@ class MainActivity : AppCompatActivity() {
         val por3 = edtpor3.text.toString().toFloatOrNull() ?: 0f
         val por4 = edtpor4.text.toString().toFloatOrNull() ?: 0f
         return por1 + por2 + por3 + por4
+    }
+
+    private fun showCustomDialog() {
+        val dialog = Dialog(this)
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_cherri, null)
+
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(view)
+
+        val lottieAnimationView = view.findViewById<LottieAnimationView>(R.id.lottieAnimationView)
+
+        // Opcional: Configurar la animación manualmente
+        // lottieAnimationView.setAnimation(R.raw.your_lottie_file)
+        // lottieAnimationView.playAnimation()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        // Opcional: Configurar la posición del diálogo
+        val params: WindowManager.LayoutParams = dialog.window!!.attributes
+        params.x = 0
+        params.y = 0
+        dialog.window!!.attributes = params
+
+        dialog.show()
+
+        // Cerrar el diálogo automáticamente después de 3 segundos
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (dialog.isShowing) {
+                dialog.dismiss()
+            }
+        }, 3000) // 3000 milisegundos = 3 segundos
     }
 }

@@ -44,11 +44,11 @@ class AdapterListView (private val context: Context, private val dataList: List<
 
         val item = getItem(position) as Nota
         val textViewTitle = convertView!!.findViewById<TextView>(R.id.textViewTitle)
-        val textViewDescription = convertView!!.findViewById<TextView>(R.id.textViewDescription)
         val crdItem = convertView!!.findViewById<CardView>(R.id.crdItem)
+        val textNota = convertView!!.findViewById<TextView>(R.id.txtnota)
 
         textViewTitle.text = item.nombre
-        textViewDescription.text = item.notaFinal
+        textNota.text = item.notaFinal
 
         // Agregar un OnClickListener al convertView para manejar el clic
         convertView.setOnClickListener {
